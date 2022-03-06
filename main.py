@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 from datetime import datetime
 from time import time
-from src import routes
+from routers import urls
 
 
 app = FastAPI()
 
-app.include_router(routes.router)
+app.include_router(urls.router)
 
 @app.get("/")
 async def root():
-    return {"Unix": time(), "Now": datetime.now().strftime('%d-%m-%Y Time:%H:%M:%S')}
+    return {"Unix": time(), "UTC time now": datetime.utcnow().isoformat()}
