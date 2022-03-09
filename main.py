@@ -7,7 +7,7 @@ import re
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/api/")
 def root():
     return {"Unix": time(), "UTC time now": datetime.utcnow().isoformat()}
 
